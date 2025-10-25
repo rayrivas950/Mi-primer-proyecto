@@ -3,25 +3,19 @@ import psycopg2
 from psycopg2 import Error as Psycopg2Error # Importar el tipo de error específico
 import os
 from dotenv import load_dotenv
-from flask_jwt_extended import JWTManager # Importar JWTManager
 
 # Importar funciones de la base de datos desde el módulo db.py
-from .db import get_db_connection, close_db_connection
+from db import get_db_connection, close_db_connection
 # Importar el Blueprint de rutas desde el módulo routes.py
-from .routes import contactos_bp
+from routes import contactos_bp
+print(f"Cargando routes.py desde: {contactos_bp.import_name}")
 # Importar el Blueprint de autenticación desde el módulo auth_routes.py
-from .auth_routes import auth_bp
+from auth_routes import auth_bp
 
 load_dotenv()
 
 app = Flask(__name__)
-
-# Configurar la clave secreta para JWT desde las variables de entorno
-app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
-# Inicializar Flask-JWT-Extended
-jwt = JWTManager(app)
-
-# Registrar la función de cierre de conexión con el contexto de la aplicación
+CORS(app) # Habilitar CORS para toda la aplicación
 @app.teardown_appcontext
 def teardown_db(exception):
     close_db_connection(exception)

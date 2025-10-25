@@ -1,0 +1,92 @@
+{
+  "info": {
+    "name": "Flask CRUD Contactos (Múltiples)",
+    "_postman_id": "b2c3d4e5-f6a7-8901-2345-6789abcdef01",
+    "description": "Colección para probar CRUD de varios contactos en Flask",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear contacto - Ana",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nombre\": \"Ana\",\n    \"telefono\": \"123456\"\n}"
+        },
+        "url": { "raw": "http://127.0.0.1:5000/contactos", "protocol": "http", "host": ["127.0.0.1"], "port": "5000", "path": ["contactos"] }
+      }
+    },
+    {
+      "name": "Crear contacto - Juan",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nombre\": \"Juan\",\n    \"telefono\": \"654321\"\n}"
+        },
+        "url": { "raw": "http://127.0.0.1:5000/contactos", "protocol": "http", "host": ["127.0.0.1"], "port": "5000", "path": ["contactos"] }
+      }
+    },
+    {
+      "name": "Crear contacto - Pedro",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nombre\": \"Pedro\",\n    \"telefono\": \"777888\"\n}"
+        },
+        "url": { "raw": "http://127.0.0.1:5000/contactos", "protocol": "http", "host": ["127.0.0.1"], "port": "5000", "path": ["contactos"] }
+      }
+    },
+    {
+      "name": "Leer todos los contactos (GET)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://127.0.0.1:5000/contactos",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "5000",
+          "path": ["contactos"]
+        }
+      }
+    },
+    {
+      "name": "Actualizar contacto 1 (Juan → Juanito)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nombre\": \"Juanito\",\n    \"telefono\": \"111222\"\n}"
+        },
+        "url": { "raw": "http://127.0.0.1:5000/contactos/1", "protocol": "http", "host": ["127.0.0.1"], "port": "5000", "path": ["contactos", "1"] }
+      }
+    },
+    {
+      "name": "Eliminar contacto 2 (Pedro)",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://127.0.0.1:5000/contactos/2",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "5000",
+          "path": ["contactos", "2"]
+        }
+      }
+    }
+  ]
+}
